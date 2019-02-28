@@ -2,12 +2,13 @@ package repository;
 
 import model.Hotel;
 import model.Order;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+//import org.hibernate.HibernateException;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
+//import org.hibernate.query.Query;
+import org.hibernate.*;
 
 import java.util.ArrayList;
 import java.util.List;
