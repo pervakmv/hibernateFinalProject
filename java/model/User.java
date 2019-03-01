@@ -8,6 +8,8 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -119,5 +121,33 @@ public class User  {
                 userType != null)
             return true;
         return false;
+    }
+
+
+
+    public User enterDataByKeyboard() throws Exception {
+
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
+            System.out.print("UserName: ");
+            this.username = br.readLine();
+
+
+            System.out.print("Password: ");
+            this.password = br.readLine();
+
+
+            System.out.print("Country: ");
+            this.country = br.readLine();
+
+
+            System.out.print("UserType: 1- USER, 2-ADMIN. The default value is USER. ");
+            if (Integer.valueOf(br.readLine()) == 2) {
+                this.userType = UserType.ADMIN;
+            } else {
+                this.userType = userType.USER;
+            }
+
+        }
+        return this;
     }
 }

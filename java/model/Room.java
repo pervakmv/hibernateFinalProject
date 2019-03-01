@@ -1,6 +1,8 @@
 package model;
 
 import javax.persistence.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.Date;
 
 @Entity(name = "Room")
@@ -160,4 +162,60 @@ public class Room {
 
         return true;
     }
+
+
+
+    public Room enterDataByKeyboard() throws Exception{
+
+
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Number of guests : ");
+            this.numberOfGuests = Integer.parseInt(br.readLine());
+            System.out.println("Price :");
+            this.price = Double.parseDouble(br.readLine());
+            System.out.println("Breakfast inclueded 1-Yes/2-No");
+            if (Integer.valueOf(br.readLine()) == 1)
+                this.breakfastIncluded = 1;
+            else
+                this.breakfastIncluded = 0;
+
+            System.out.println("Pets allowed 1-Yes/2-No");
+            if (Integer.parseInt(br.readLine()) == 1)
+                this.petsAllowed = 1;
+            else
+                this.petsAllowed = 0;
+
+            System.out.println("Date available from ");
+
+            int date = 0;
+            int month = 0;
+            int year = 0;
+            do {
+                System.out.println("Day");
+                date = Integer.parseInt(br.readLine());
+
+            } while (!(date > 0 && date < 32));
+
+
+            do {
+                System.out.println("Month");
+                month = Integer.parseInt(br.readLine());
+            } while (!(month >= 1 && month < 12));
+
+
+            do {
+                System.out.println("Year");
+                year = Integer.parseInt(br.readLine());
+            } while (!(year > 2017 && year < 2030));
+
+            dateAvailableFrom = new Date(year - 1900, month - 1, date);
+
+
+
+        }
+
+        return this;
+    }
+
+
 }

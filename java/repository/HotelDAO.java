@@ -167,7 +167,7 @@ public class HotelDAO implements DAO<Hotel> {
                 session.close();
             }
         }
-        return resList.isEmpty() ? null : resList;
+        return resList;
     }
 
 
@@ -185,10 +185,10 @@ public class HotelDAO implements DAO<Hotel> {
             query.setParameter("city", city);
             resList = query.list();
             session.getTransaction().commit();
-            System.out.println("find hotel by name is done");
+            System.out.println("find hotel by city is done");
 
         } catch (HibernateException e) {
-            System.err.println("find hotel by name is faild");
+            System.err.println("find hotel by city is faild");
             System.out.println(e.getMessage());
             if (tr != null)
                 tr.rollback();
@@ -197,7 +197,7 @@ public class HotelDAO implements DAO<Hotel> {
                 session.close();
             }
         }
-        return resList.isEmpty() ? null : resList;
+        return resList;
     }
 
 }

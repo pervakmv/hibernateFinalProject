@@ -4,6 +4,8 @@ import org.hibernate.annotations.LazyToOne;
 import org.hibernate.annotations.LazyToOneOption;
 
 import javax.persistence.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
@@ -110,4 +112,29 @@ public class Hotel {
         }
         return false;
     }
+
+
+    public Hotel enterDataByKeyboard() throws Exception{
+
+
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.print("Name: ");
+            this.name = br.readLine();
+
+            System.out.print("Country: ");
+            this.country = br.readLine();
+
+
+            System.out.print("City: ");
+            this.city = br.readLine();
+
+
+            System.out.print("Street: ");
+            this.street = br.readLine();
+
+
+        }
+        return this;
+    }
+
 }

@@ -20,9 +20,9 @@ public class HotelService {
             throw new Exception("addRoom: User has not enugh permits");
 
         //if hotel is exist in repo
-        if (!hotelDAO.findHotelByName(hotel.getName()).isEmpty() &&
-                !hotelDAO.findHotelByCity(hotel.getCity()).isEmpty())
-            throw new Exception("Hotel with name " + hotel.getName() + " is already exist" + " in the City : " + hotel.getCity());
+//        if (!hotelDAO.findHotelByName(hotel.getName()).isEmpty() &&
+//                !hotelDAO.findHotelByCity(hotel.getCity()).isEmpty())
+//            throw new Exception("Hotel with name " + hotel.getName() + " is already exist" + " in the City : " + hotel.getCity());
 
         //check business logic
         if (!hotel.canBeAdd())
